@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "mod4"
+version = "0.1.0"
+description = "ht"
+authors = ["Svitlana Shulha <svitlash08@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.group.dev.dependencies]
+Jinja2 = "^3.1.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
