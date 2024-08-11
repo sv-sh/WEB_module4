@@ -58,14 +58,10 @@ class MyHTTPHandler(BaseHTTPRequestHandler):
              self.wfile.write(file.read())
 
 def save_message_data(data):
-   # print(data)
     parse_data = urllib.parse.unquote_plus(data.decode())
-   # print(parse_data)
     try:
             parser_dict ={key:value for key, value in [el.split('=')for el in parse_data.split('&')]}
-            #date_to_save = {datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'): parser_dict}
             load_data[datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')]= parser_dict
-
             with open(STORAGE, 'w', encoding='utf-8') as file:
                 json.dump(load_data, file, ensure_ascii=False, indent=2)
     except ValueError as e:
@@ -87,7 +83,6 @@ def run_socket_server(host, port):
          logging.info(f'quit')
     finally:
         server_socket.close()
-
 
 def run_http_server(host, port):
     address = (host, port)
